@@ -10,7 +10,7 @@ using blogApi.Context;
 namespace blogApi.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20201004181257_InitialCreate")]
+    [Migration("20201004183918_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,18 +35,14 @@ namespace blogApi.Migrations
                     b.Property<int>("postId")
                         .HasColumnType("int");
 
-                    b.Property<string>("userId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("userId1")
+                    b.Property<int?>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("postId");
 
-                    b.HasIndex("userId1");
+                    b.HasIndex("userId");
 
                     b.ToTable("comments");
                 });
@@ -70,16 +66,12 @@ namespace blogApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("userId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("userId1")
+                    b.Property<int>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
-                    b.HasIndex("userId1");
+                    b.HasIndex("userId");
 
                     b.ToTable("posts");
                 });
@@ -122,14 +114,16 @@ namespace blogApi.Migrations
 
                     b.HasOne("blogApi.Models.User", "user")
                         .WithMany()
-                        .HasForeignKey("userId1");
+                        .HasForeignKey("userId");
                 });
 
             modelBuilder.Entity("blogApi.Models.Post", b =>
                 {
                     b.HasOne("blogApi.Models.User", "user")
                         .WithMany("Posts")
-                        .HasForeignKey("userId1");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

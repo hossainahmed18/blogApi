@@ -30,19 +30,18 @@ namespace blogApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     title = table.Column<string>(nullable: false),
                     body = table.Column<string>(nullable: false),
-                    userId = table.Column<string>(nullable: false),
-                    userId1 = table.Column<int>(nullable: true),
+                    userId = table.Column<int>(nullable: false),
                     status = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_posts", x => x.id);
                     table.ForeignKey(
-                        name: "FK_posts_users_userId1",
-                        column: x => x.userId1,
+                        name: "FK_posts_users_userId",
+                        column: x => x.userId,
                         principalTable: "users",
                         principalColumn: "userId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,8 +51,7 @@ namespace blogApi.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     commentBody = table.Column<string>(nullable: false),
-                    userId = table.Column<string>(nullable: false),
-                    userId1 = table.Column<int>(nullable: true),
+                    userId = table.Column<int>(nullable: true),
                     postId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -66,8 +64,8 @@ namespace blogApi.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_comments_users_userId1",
-                        column: x => x.userId1,
+                        name: "FK_comments_users_userId",
+                        column: x => x.userId,
                         principalTable: "users",
                         principalColumn: "userId",
                         onDelete: ReferentialAction.Restrict);
@@ -79,14 +77,14 @@ namespace blogApi.Migrations
                 column: "postId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_comments_userId1",
+                name: "IX_comments_userId",
                 table: "comments",
-                column: "userId1");
+                column: "userId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_posts_userId1",
+                name: "IX_posts_userId",
                 table: "posts",
-                column: "userId1");
+                column: "userId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

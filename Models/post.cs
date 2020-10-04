@@ -13,7 +13,7 @@ namespace blogApi.Models
         [Required]
         public string body { get; set; }
         [Required]
-        public string userId {get; set;}
+        public int userId {get; set;}
         public User user { get; set; }
         [Required]
         public string status {get; set;}

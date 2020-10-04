@@ -9,8 +9,7 @@ namespace blogApi.Models
         public int id { get; set; }
         [Required]
         public string commentBody { get; set; }
-        [Required]
-        public string userId { get; set; }
+        public int? userId { get; set; }
         public User user { get; set; }
         [Required]
         public int postId { get; set; }
