@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using blogApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using blogApi.repositories.user;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace blogApi.Controllers
 {
@@ -15,6 +17,7 @@ namespace blogApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("get")]
         public ActionResult<IEnumerable<User>> Get(){
             var allusers = _repo.Get();

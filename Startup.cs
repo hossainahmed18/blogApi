@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +12,11 @@ using blogApi.repositories.post;
 using blogApi.repositories.post.PostRepository;
 using blogApi.repositories.comment;
 using blogApi.repositories.comment.PostComment;
+using  Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using blogApi.Models;
+
 
 
 namespace blogApi
@@ -33,6 +39,8 @@ namespace blogApi
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IPostComment, PostComment>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>{options.RequireHttpsMetadata = false;options.SaveToken = true;options.TokenValidationParameters = new TokenValidationParameters{ValidateIssuer = false,ValidateAudience = false,ValidateLifetime = true,ValidateIssuerSigningKey = true,ValidIssuer = Configuration["Jwt:Issuer"],ValidAudience = Configuration["Jwt:Audience"],IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])),ClockSkew = TimeSpan.Zero};});
+            services.AddAuthorization(config =>{config.AddPolicy(Policies.Admin, Policies.AdminPolicy());config.AddPolicy(Policies.User, Policies.UserPolicy());});
             
         }
 

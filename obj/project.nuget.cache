@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5qkfGVRqR2TVhFqi55m4WWHkYoiXKnKcPiDrvRQQNxkbr69qdFuWvgc5jPFFfN7pTJlq+WJk5uKrnM9tjda7nA==",
+  "dgSpecHash": "TZn92+jnfM+GBmajh+64Xz8/st7SmHBEijwuTYP9qfQBQOeXYcp2HJdDmIWcRDMgsMF+yBbQisW4dkTMio+u4Q==",
   "success": true,
   "projectFilePath": "H:\\net practice\\blogApi\\blogApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\NTI\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
     "C:\\Users\\NTI\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\NTI\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\NTI\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
