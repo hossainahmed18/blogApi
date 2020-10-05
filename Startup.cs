@@ -5,6 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using blogApi.Context;
 using Microsoft.EntityFrameworkCore;
+using blogApi.repositories.user;
+using blogApi.repositories.user.UserRepository;
+using blogApi.repositories.post;
+using blogApi.repositories.post.PostRepository;
+using blogApi.repositories.comment;
+using blogApi.repositories.comment.PostComment;
 
 
 namespace blogApi
@@ -22,7 +28,12 @@ namespace blogApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            string connectionString =   Configuration.GetConnectionString("DefaultConnection");    services.AddDbContext<MainContext>(option => option.UseSqlServer(connectionString));
+            string connectionString =   Configuration.GetConnectionString("DefaultConnection");  
+            services.AddDbContext<MainContext>(option => option.UseSqlServer(connectionString));
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IPostComment, PostComment>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

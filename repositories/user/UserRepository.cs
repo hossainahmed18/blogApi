@@ -4,9 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using blogApi.Models;
-using blogApi.repositories.user;
+
 
 
 namespace blogApi.repositories.user.UserRepository{
