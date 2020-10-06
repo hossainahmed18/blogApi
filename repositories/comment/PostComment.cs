@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using blogApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace blogApi.repositories.comment.PostComment{
@@ -15,7 +16,7 @@ namespace blogApi.repositories.comment.PostComment{
         }
         public ActionResult<IEnumerable<Comment>> Get(int id){
 
-            var comments = _mainContext.comments.Where(x => x.postId == id).ToList();
+            var comments = _mainContext.comments.Include(i=>i.post).Where(x => x.postId == id).ToList();
             return comments;
         }
 

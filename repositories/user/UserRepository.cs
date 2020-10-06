@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using blogApi.Models;
-
+using Microsoft.EntityFrameworkCore;
 
 
 namespace blogApi.repositories.user.UserRepository{
@@ -24,7 +24,7 @@ namespace blogApi.repositories.user.UserRepository{
 
         }
         public ActionResult<IEnumerable<User>> Get(){
-            var book = _mainContext.users.ToList();
+            var book = _mainContext.users.Include(i=>i.Post).ToList();
             return book;
         }
         public User singleGet(String email, String password){

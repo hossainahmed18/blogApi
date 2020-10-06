@@ -18,7 +18,7 @@ namespace blogApi.Models
         public string userRole {get; set;}
         [Required]
         public string password {get; set;}
-        public List<Post> Posts { get; set; }
+        public List<Post> Post { get; set; }
         
 
     }

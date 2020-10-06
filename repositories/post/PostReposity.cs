@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using blogApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace blogApi.repositories.post.PostRepository{
