@@ -121,3 +121,4 @@ G:\netPractice\blogApi\obj\Debug\netcoreapp3.1\staticwebassets\blogApi.StaticWeb
 G:\netPractice\blogApi\obj\Debug\netcoreapp3.1\blogApi.dll
 G:\netPractice\blogApi\obj\Debug\netcoreapp3.1\blogApi.pdb
 G:\netPractice\blogApi\obj\Debug\netcoreapp3.1\blogApi.genruntimeconfig.cache
+H:\net practice\blogApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

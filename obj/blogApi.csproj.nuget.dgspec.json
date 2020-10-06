@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\netPractice\\blogApi\\blogApi.csproj": {}
+    "H:\\net practice\\blogApi\\blogApi.csproj": {}
   },
   "projects": {
-    "G:\\netPractice\\blogApi\\blogApi.csproj": {
+    "H:\\net practice\\blogApi\\blogApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\netPractice\\blogApi\\blogApi.csproj",
+        "projectUniqueName": "H:\\net practice\\blogApi\\blogApi.csproj",
         "projectName": "blogApi",
-        "projectPath": "G:\\netPractice\\blogApi\\blogApi.csproj",
-        "packagesPath": "C:\\Users\\hossain\\.nuget\\packages\\",
-        "outputPath": "G:\\netPractice\\blogApi\\obj\\",
+        "projectPath": "H:\\net practice\\blogApi\\blogApi.csproj",
+        "packagesPath": "C:\\Users\\NTI\\.nuget\\packages\\",
+        "outputPath": "H:\\net practice\\blogApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\hossain\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\NTI\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
