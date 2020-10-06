@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "H:\\net practice\\blogApi\\blogApi.csproj": {}
+    "G:\\netPractice\\blogApi\\blogApi.csproj": {}
   },
   "projects": {
-    "H:\\net practice\\blogApi\\blogApi.csproj": {
+    "G:\\netPractice\\blogApi\\blogApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\net practice\\blogApi\\blogApi.csproj",
+        "projectUniqueName": "G:\\netPractice\\blogApi\\blogApi.csproj",
         "projectName": "blogApi",
-        "projectPath": "H:\\net practice\\blogApi\\blogApi.csproj",
-        "packagesPath": "C:\\Users\\NTI\\.nuget\\packages\\",
-        "outputPath": "H:\\net practice\\blogApi\\obj\\",
+        "projectPath": "G:\\netPractice\\blogApi\\blogApi.csproj",
+        "packagesPath": "C:\\Users\\hossain\\.nuget\\packages\\",
+        "outputPath": "G:\\netPractice\\blogApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\NTI\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hossain\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -41,7 +38,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[3.1.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

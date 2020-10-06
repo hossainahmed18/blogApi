@@ -10,7 +10,7 @@ using blogApi.Context;
 namespace blogApi.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20201004183918_InitialCreate")]
+    [Migration("20201006093218_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

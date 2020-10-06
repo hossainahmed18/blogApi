@@ -17,7 +17,7 @@ namespace blogApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Policy = Policies.Admin)]
         [Route("get")]
         public ActionResult<IEnumerable<User>> Get(){
             var allusers = _repo.Get();
