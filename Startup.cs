@@ -12,10 +12,11 @@ using blogApi.repositories.post;
 using blogApi.repositories.post.PostRepository;
 using blogApi.repositories.comment;
 using blogApi.repositories.comment.PostComment;
-using  Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using blogApi.Models;
+using Microsoft.AspNetCore.Cors;
 
 
 
@@ -33,15 +34,16 @@ namespace blogApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
-            string connectionString =   Configuration.GetConnectionString("DefaultConnection");  
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<MainContext>(option => option.UseSqlServer(connectionString));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IPostComment, PostComment>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>{options.RequireHttpsMetadata = false;options.SaveToken = true;options.TokenValidationParameters = new TokenValidationParameters{ValidateIssuer = false,ValidateAudience = false,ValidateLifetime = true,ValidateIssuerSigningKey = true,ValidIssuer = Configuration["Jwt:Issuer"],ValidAudience = Configuration["Jwt:Audience"],IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])),ClockSkew = TimeSpan.Zero};});
-            services.AddAuthorization(config =>{config.AddPolicy(Policies.Admin, Policies.AdminPolicy());config.AddPolicy(Policies.User, Policies.UserPolicy());});
-            
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => { options.RequireHttpsMetadata = false; options.SaveToken = true; options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false, ValidateAudience = false, ValidateLifetime = true, ValidateIssuerSigningKey = true, ValidIssuer = Configuration["Jwt:Issuer"], ValidAudience = Configuration["Jwt:Audience"], IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])), ClockSkew = TimeSpan.Zero }; });
+            services.AddAuthorization(config => { config.AddPolicy(Policies.Admin, Policies.AdminPolicy()); config.AddPolicy(Policies.User, Policies.UserPolicy()); });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +57,8 @@ namespace blogApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());  
+
             app.UseAuthentication();
 
             app.UseAuthorization();

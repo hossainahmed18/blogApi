@@ -10,14 +10,14 @@ using blogApi.Context;
 namespace blogApi.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20201006093218_InitialCreate")]
+    [Migration("20201019101441_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -120,7 +120,7 @@ namespace blogApi.Migrations
             modelBuilder.Entity("blogApi.Models.Post", b =>
                 {
                     b.HasOne("blogApi.Models.User", "user")
-                        .WithMany("Posts")
+                        .WithMany("Post")
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
